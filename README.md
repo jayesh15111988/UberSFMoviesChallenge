@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # [HTML5 Boilerplate](http://html5boilerplate.com)
 
 HTML5 Boilerplate is a professional front-end template for building fast,
@@ -59,3 +60,9 @@ want to write about your project.
 
 Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). Hundreds of
 developers have helped make the HTML5 Boilerplate what it is today.
+=======
+UberSFMoviesChallenge
+=====================
+
+A coding challenge to visually display shooting venues in a city of San Fransisco
+>>>>>>> 8ac7af302d4e7b79fac2fc2766192fb7d8a0aceb

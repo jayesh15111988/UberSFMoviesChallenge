@@ -17,10 +17,9 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquery.devbridge-autocomplete.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
-
-
 
 
         <script src="js/plugins.js"></script>
@@ -44,7 +43,7 @@
 
 
 
-
+<input type="text" id="dev">
 
 
 
@@ -55,8 +54,12 @@
 
         <div id="search-bar-div">
 
-            <script src="js/APIRequestMovies/SFMoviesRequest.js"></script>
-            <input type="text" class="user-input" id="input-movie-name" value="Please name the movie"></inpur>
+
+            <script src="js/APIRequestMovies/SFMoviesProjectConstants.js"></script>
+            <script src="js/APIRequestMovies/SFMoviesNameInputView.js"></script>
+            <script src="js/APIRequestMovies/SFMoviesGetAndShowSuggestedMovieNames.js"></script>
+
+            <input type="text" placeholder="Please name the movie" class="user-input" id="input-movie-name" value="">
             <button class="general-button" id='search-button'>Search </button>
 
 

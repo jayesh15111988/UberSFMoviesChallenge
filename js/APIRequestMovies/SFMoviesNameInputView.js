@@ -21,7 +21,7 @@
 })(jQuery);
 
 //This is to keep track of whatever entered in the input movie name field
-
+var inputMovieName='';
 var moviesListRequest = Backbone.View.extend({
 
     el: $('#search-bar-div'),
@@ -38,7 +38,7 @@ var moviesListRequest = Backbone.View.extend({
 
     nameChanged: function(){
 
-        var inputMovieName = $('#input-movie-name').val();
+        inputMovieName = $('#input-movie-name').val();
 
 
 
@@ -61,3 +61,22 @@ var moviesListRequest = Backbone.View.extend({
 });
 
 var getListOfMoviesFromServer = new moviesListRequest();
+
+var remoteURL='http://www.jayeshkawli.com/SFMovies/SFMoviesStoreInDataBase.php?movieNameInput=';//A&';//'http://ws.audioscrobbler.com/2.0/?method=artist.search&api_key=cef6d600c717ecadfbe965380c9bac8b&format=json&';
+
+var autocompleteRemote = new Backbone.AutocompleteList({
+
+    url: function() { return remoteURL+inputMovieName+'&'+ $.param({ all_suggestions: inputMovieName }); },
+    filter: null,
+    el: $('#input-movie-name'),
+    template: _.template('<p><%= name.replace(new RegExp("(" + inputMovieName + ")", "i") ,"<b>$1</b>") %></p>'),
+    delay: 500,
+    minLength: 2,
+    value: function(model) { return model.get('name') }
+}).resultsView.collection.parse = function(resp) {
+
+
+    console.log("Value is "+inputMovieName);
+    //console.log(JSON.stringify(resp.results));
+    return resp.all_suggestions;
+};

@@ -20,7 +20,8 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquery.devbridge-autocomplete.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
-
+        <script src="js/SFMoviesAutocomplete/backbone-autocomplete.js"></script>
+        <script src="js/SFMoviesAutocomplete/samples.js"></script>
 
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
@@ -43,7 +44,6 @@
 
 
 
-<input type="text" id="dev">
 
 
 
@@ -55,11 +55,14 @@
         <div id="search-bar-div">
 
 
+
+            <input type="text" name="search" autocomplete="off" placeholder="Please name the movie" class="user-input" id="input-movie-name" value="">
+
+
             <script src="js/APIRequestMovies/SFMoviesProjectConstants.js"></script>
             <script src="js/APIRequestMovies/SFMoviesNameInputView.js"></script>
             <script src="js/APIRequestMovies/SFMoviesGetAndShowSuggestedMovieNames.js"></script>
 
-            <input type="text" placeholder="Please name the movie" class="user-input" id="input-movie-name" value="">
             <button class="general-button" id='search-button'>Search </button>
 
 

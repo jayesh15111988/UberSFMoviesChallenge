@@ -10,8 +10,12 @@ function getPromiseWithURLAndParameters(destinationURL,getParameters){
             type: 'GET',
             dataType: 'json',
             data : getParameters,
-            success: function(successResponse) { resolve(successResponse); },
-            error: function(errorResponse) { reject(errorResponse); }
+            success: function(successResponse) {
+                resolve(successResponse);
+            },
+            error: function(errorResponse) {
+                reject(errorResponse);
+            }
         });
 
 

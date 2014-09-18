@@ -23,6 +23,13 @@
         <script src="js/SFMoviesAutocomplete/backbone-autocomplete.js"></script>
 
 
+        <script src="js/APIRequestMovies/SFMoviesProjectConstants.js"></script>
+        <script src="js/APIRequestMovies/SFMoviePromiseProvider.js"></script>
+        <script src="js/APIRequestMovies/SFMovieMapPlotterOnView.js"></script>
+        <script src="js/APIRequestMovies/SFMoviesNameInputView.js"></script>
+
+        <script src="js/APIRequestMovies/SFMoviesGetAndShowSuggestedMovieNames.js"></script>
+
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
@@ -31,7 +38,7 @@
             html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
         </style>
         <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCES1gYjy3W5pPIDFviPgjVGLvGm1K6bSI">
+                src="https://maps.googleapis.com/maps/api/js?key="+GoogleMapsAuthorizationKey>
         </script>
         <script src="js/GoogleMaps/GoogleMapsFetch.js"></script>
         <script src="js/jQueryAnimationSource/jQueryAnimations.js" defer></script>
@@ -59,12 +66,7 @@
             <input type="text" name="search" autocomplete="off" placeholder="Please name the movie" class="user-input" id="input-movie-name">
 
 
-            <script src="js/APIRequestMovies/SFMoviesProjectConstants.js"></script>
-            <script src="js/APIRequestMovies/SFMoviePromiseProvider.js"></script>
-            <script src="js/APIRequestMovies/SFMovieMapPlotterOnView.js"></script>
-            <script src="js/APIRequestMovies/SFMoviesNameInputView.js"></script>
             <script src="js/APIRequestMovies/SFMoviesAutoCompleteSuggestionProvider.js"></script>
-            <script src="js/APIRequestMovies/SFMoviesGetAndShowSuggestedMovieNames.js"></script>
 
             <button class="general-button" id='search-button'>Search </button>
 

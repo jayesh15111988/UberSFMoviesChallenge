@@ -3,7 +3,7 @@ var map;
 
 function initialize() {
     mapOptions = {
-        center: new google.maps.LatLng(-25.363882,31.044922),
+        center: new google.maps.LatLng(37.7833, -122.4167),
         zoom: 6
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -12,9 +12,9 @@ function initialize() {
 
     var marker = new google.maps.Marker({
 
-        position: new google.maps.LatLng(-25.363882,31.044922),
+        position: new google.maps.LatLng(37.7833, -122.4167),
         map: map,
-        title: 'Hello World!'
+        title: 'City Of San Fransisco'
     });
 }
 google.maps.event.addDomListener(window, 'load', initialize);

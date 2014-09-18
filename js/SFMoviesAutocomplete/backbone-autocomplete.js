@@ -111,7 +111,7 @@
                 zIndex: 1,
                 left: this.$el.offset().left,
                 top: this.$el.offset().top + this.$el.outerHeight(),
-                width: this.$el.outerWidth(),
+                width: this.$el.outerWidth()
             }).appendTo($('body'));
             this.resultsView = new Backbone.InteractiveList(_.defaults({ el: this.results }, this.options)).on('render', this.next, this);
         },
@@ -142,12 +142,14 @@
 
         keydown: function(e) {
             // Esc
+
             if (e.keyCode == 27) {
                 this.blur();
                 return false;
             }
             // Enter
             if (e.keyCode == 13 || e.keyCode == 9) {
+
                 // if an item is selected, act like it was clicked
                 if (this.$selected().length > 0) {
                     this.$selected().mousedown();

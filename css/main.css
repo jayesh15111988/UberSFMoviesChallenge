@@ -326,3 +326,11 @@ input[type="text"]{
     height: 30px;
 }
 
+.autocomplete-results{
+    background-color: rgba(192,192,192,0.5);
+
+}
+.selected{
+    background-color: rgba(170,160,220,0.7);
+}
+

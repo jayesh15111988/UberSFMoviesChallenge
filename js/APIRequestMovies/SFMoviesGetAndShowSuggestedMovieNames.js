@@ -50,26 +50,14 @@ function sendRequestToServerWithRequestAndMethodParameters(baseURL,APIVersion,AP
     }
     else if(requestMethod==RESTRequestMethods.POST){
 
-        console.log("Length of array in inner method is "+POSTData.length);
-     /*   $.ajax({
-            type: "POST",
-            url:baseURL+'/'+APIVersion+'/'+APItailEnd,
-            data:{'postDataKey':POSTData},
-            success: function(successResponse){
-                console.log("length of messages"+successResponse.length);
-                callBackFunction(successResponse);
-            },
-            error: function(XMLHttpRequest, errorStatus, errorThrown) {
-                errorCallBackFunction(errorStatus);
-            }
-        });
-*/
+
+
 
 console.log("Type of post data is", typeof POSTData+" and first value if "+POSTData[0]);
         $.post(baseURL+'/'+APIVersion+'/'+APItailEnd,
             {
-                'postDataKey':POSTData,
-                city:"Duckburg"
+                'postDataKey':POSTData
+
             },
             function(data,status){
                 console.log("Data: " + data);

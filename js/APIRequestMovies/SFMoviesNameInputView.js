@@ -66,7 +66,23 @@ console.log("Movie name input"+inputMovieName);
         //var JSONConvertedServerResponse=serverResponse.toJSON();
             //Send another request to PHP page to store all these movie names persistently along with other metadata
             sendRequestToServerWithRequestAndMethodParameters(HomeServerBaseURL,HomeServerAPIVersion,'SFMoviesStoreInDataBase.php?movieNameInput='+inputMovieName,RESTRequestMethods.GET,'',function(successResponse){
-               console.log("Success response"+successResponse);
+var JSONConvertedSuccessResponse =  successResponse.toJSON();
+                var movieNamesList=JSONConvertedSuccessResponse[0]['all_suggestions'];
+                if(!movieNamesList.length){
+                    //Show Error message
+                    $(".main-error-message").html("No Suggestion Message");
+                    $(".main-error-resolution").html(" Server Could not find suggested movies titles for input string");
+                    $(".extra-error-message").html("(Please try again with more elaborate hint of possible movie names)");
+
+
+                    $('#internet-connection-status-dialogue').lightbox_me({
+                        centered: true,
+                        overlaySpeed:"fast",
+                        closeClick:true
+                    });
+
+                }
+
             },function(errorResponse){
                 console.log("Dumb Response"+errorResponse);
             });

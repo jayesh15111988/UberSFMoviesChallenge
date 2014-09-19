@@ -369,6 +369,8 @@ input[type="text"]{
     background-color: rgba(163,203,241,1.0);
     position: absolute;
     z-index: 100;
+    border: 2px solid #E9ECA2;
+    border-radius: 35px;
 
 
 }
@@ -379,6 +381,7 @@ input[type="text"]{
     font-weight: bold;
     font-size: 18px;
     text-align: center;
+
 }
 
 .main-error-message{
@@ -386,4 +389,9 @@ input[type="text"]{
     font-size: 22px;
     color: #617fff;
     margin-top: 20px;
+}
+
+.regular-image-icon{
+    width: 24px;
+    height:24px;
 }

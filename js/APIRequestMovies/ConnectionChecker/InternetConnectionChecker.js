@@ -9,12 +9,13 @@ if(!isWebsiteOnline){
 }
 
 window.addEventListener("offline", function(e) {
-
+    isWebsiteOnline=0;
     showPopForOfflineConnection();
     console.log("offline");
 })
 
 window.addEventListener("online", function(e) {
+    isWebsiteOnline=1;
 hidePopAfterOnlineInternetConnection();
     console.log("online");
 
@@ -25,6 +26,11 @@ function hidePopAfterOnlineInternetConnection(){
 }
 
 function showPopForOfflineConnection(){
+    $(".main-error-message").html("Connection Error");
+    $(".main-error-resolution").html(" It seems that your Internet Connection if offline.Please verify and try again later.");
+    $(".extra-error-message").html("(This popup will automatically disappear once connection comes back to life)");
+
+
     $('#internet-connection-status-dialogue').lightbox_me({
         centered: true,
         overlaySpeed:"slow",

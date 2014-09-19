@@ -16,6 +16,7 @@ function sendRequestToGetListAndPlotAllMapPointOnMapWithMovieName(inputMovieName
         //console.log('Got data! Promise fulfilled.'+JSON.stringify(returnedLocations)+ " final data returne by server ");
         collectionOfAllMoviesMetaData=returnedLocations['all_movie_locations_list'];
 
+
         var individualMovieLocationFromDatabase='';
 
         if(collectionOfAllMoviesMetaData.length>0){
@@ -34,7 +35,9 @@ function sendRequestToGetListAndPlotAllMapPointOnMapWithMovieName(inputMovieName
 return Promise.all(promisesCollectionArray);
         }
         else{
-            return -1;
+            //Show error saying that no movie found in the database
+            console.log("no moview found for given input name");
+            return 0;
         }
     }, function(error) {
         console.log('Promise rejected.');
@@ -42,10 +45,11 @@ return Promise.all(promisesCollectionArray);
     }).then(function(returnedLocationCoordinates){
          console.log("Length pof result "+returnedLocationCoordinates.length);
          //console.log(JSON.stringify(returnedLocationCoordinates));
-//TO DO plot all coordinates on map
+            //TO DO plot all coordinates on map
             //We already have all lats and longs so this shouldnt be a problem as such
             //TO DO TO DO
-
+            if(returnedLocationCoordinates)
+            {
             for(var locationCoordinatesIndex in returnedLocationCoordinates){
 
 
@@ -70,8 +74,20 @@ console.log(JSON.stringify(mapCoordinatesAndInfoHolderArray));
            }
             else{
                //Show some Error message that coordinate is not available
-           }
+               //Show Error message
+               $(".main-error-message").html("No Location Info Found");
+               $(".main-error-resolution").html(" Server Could not find locations information for given movie title");
+               $(".extra-error-message").html("(Please try again search with different movie name)");
 
+
+               $('#internet-connection-status-dialogue').lightbox_me({
+                   centered: true,
+                   overlaySpeed:"fast",
+                   closeClick:true
+               });
+
+           }
+        }
         },function(error){
             console.log("Error occurred "+error);
         });

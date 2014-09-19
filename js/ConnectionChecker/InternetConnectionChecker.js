@@ -10,6 +10,7 @@ if(!isWebsiteOnline){
 
 window.addEventListener("offline", function(e) {
     isWebsiteOnline=0;
+
     showPopForOfflineConnection();
     console.log("offline");
 })
@@ -22,10 +23,18 @@ hidePopAfterOnlineInternetConnection();
 })
 
 function hidePopAfterOnlineInternetConnection(){
+
+    $("#input-movie-name").prop('disabled', false);
+    $("#search-button").prop('disabled', false);
+
     $('#internet-connection-status-dialogue').trigger('close');
 }
 
 function showPopForOfflineConnection(){
+
+    $("#input-movie-name").prop('disabled', true);
+    $("#search-button").prop('disabled', true);
+
     $(".main-error-message").html("Connection Error");
     $(".main-error-resolution").html(" It seems that your Internet Connection if offline.Please verify and try again later.");
     $(".extra-error-message").html("(This popup will automatically disappear once connection comes back to life)");

@@ -13,9 +13,9 @@
         },
         //Send Request for locations
         sendMovieLocationsRequest: function() {
-            console.log("Search button clicked now");
+
             sendRequestToGetListAndPlotAllMapPointOnMapWithMovieName($('#input-movie-name').val());
-            console.log("Value of movie name inputted by user is "+$("#input-movie-name").val());
+
 
         }
     });
@@ -41,7 +41,7 @@ var moviesListRequest = Backbone.View.extend({
     nameChanged: function(e){
 var keyCode= e.keyCode;
         inputMovieName = $('#input-movie-name').val();
-console.log("Movie name input"+inputMovieName);
+
 
         if(keyCode===13){
             //User pressed enter - Send request to server to get list of all locations for given movie name

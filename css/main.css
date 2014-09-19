@@ -395,3 +395,12 @@ input[type="text"]{
     width: 24px;
     height:24px;
 }
+
+hr.main-horizontal-rule{
+    height: 2em;
+    background-color: #c00;
+}
+
+hr.sub-horizontal-rule{
+
+}

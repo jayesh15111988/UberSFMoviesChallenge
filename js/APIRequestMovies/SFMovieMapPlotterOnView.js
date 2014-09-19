@@ -62,7 +62,7 @@ return Promise.all(promisesCollectionArray);
                 //Mapped on the given view
                     mapCoordinatesAndInfoHolderArray.push([collectionOfAllMoviesMetaData[locationCoordinatesIndex],locationDetails['lat'],locationDetails['lng'],parseInt(locationCoordinatesIndex+5,10),locationName]);
 
-console.log(JSON.stringify(mapCoordinatesAndInfoHolderArray));
+//console.log(JSON.stringify(mapCoordinatesAndInfoHolderArray));
                 }
                 else{
                     console.log("Error In retrieving location  "+JSON.stringify(collectionOfAllMoviesMetaData[locationCoordinatesIndex]));

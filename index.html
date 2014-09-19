@@ -20,14 +20,14 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquery.devbridge-autocomplete.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
-        <script src="js/SFMoviesAutocomplete/backbone-autocomplete.js"></script>
 
+        <script src="js/jQueryAnimationSource/jquery.lightbox_me.js"></script>
+        <script src="js/SFMoviesAutocomplete/backbone-autocomplete.js"></script>
 
         <script src="js/APIRequestMovies/SFMoviesProjectConstants.js"></script>
         <script src="js/APIRequestMovies/SFMoviePromiseProvider.js"></script>
 
-
-
+        <script src="js/APIRequestMovies/ConnectionChecker/InternetConnectionChecker.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
@@ -74,7 +74,16 @@
             <br style="clear: left;" />
         </div>
 
+<div id="internet-connection-status-dialogue">
+<div class="connection-error-message">
+    <div class="main-error-message">Connection Error</div>
 
+    It seems that your Internet Connection if offline.
+    Please verify and try again later
+    <br/>
+    (This popup will automatically disappear once connection comes back to life)
+</div>
+</div>
 
         <div id="map-canvas"></div>
 

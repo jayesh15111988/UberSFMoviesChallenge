@@ -328,6 +328,9 @@ input[type="text"]{
 
 .autocomplete-results{
     background-color: rgba(192,192,192,0.5);
+    height: 300px;
+    overflow-y: auto;
+    display: none;
 
 }
 .selected{
@@ -355,6 +358,32 @@ input[type="text"]{
 
 .movie-other-actor{
     color:  rgba(127,0,255,1);
+}
+
+
+#internet-connection-status-dialogue{
+
+    display: none;
+    width: 500px;
+    height: 200px;
+    background-color: rgba(163,203,241,1.0);
+    position: absolute;
+    z-index: 100;
+
 
 }
 
+.connection-error-message{
+    color: rgba(2,130,130,1.0);
+    margin: 20px 10px 10px 10px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.main-error-message{
+    font-weight: bolder;
+    font-size: 22px;
+    color: #617fff;
+    margin-top: 20px;
+}

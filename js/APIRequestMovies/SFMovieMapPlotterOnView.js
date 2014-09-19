@@ -65,7 +65,12 @@ console.log(JSON.stringify(mapCoordinatesAndInfoHolderArray));
                 }
             }
             //Now we have all toolyip metadata and coordinates - Send all this data to plot a beautiful graphics on the map
-            plotPinsOnMapWithMovieLocationsInformation();
+           if(mapCoordinatesAndInfoHolderArray.length>0){
+               plotPinsOnMapWithMovieLocationsInformation();
+           }
+            else{
+               //Show some Error message that coordinate is not available
+           }
 
         },function(error){
             console.log("Error occurred "+error);

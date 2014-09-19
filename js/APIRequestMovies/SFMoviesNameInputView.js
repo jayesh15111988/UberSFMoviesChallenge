@@ -1,5 +1,5 @@
 (function($) {
-    var inputMovieName='';
+
     var ListView = Backbone.View.extend({
         el: $('#search-bar-div'),
         events: {
@@ -13,6 +13,7 @@
         },
         //Send Request for locations
         sendMovieLocationsRequest: function() {
+            console.log("Search button clicked now");
             sendRequestToGetListAndPlotAllMapPointOnMapWithMovieName($('#input-movie-name').val());
             console.log("Value of movie name inputted by user is "+$("#input-movie-name").val());
 
@@ -40,6 +41,7 @@ var moviesListRequest = Backbone.View.extend({
     nameChanged: function(e){
 var keyCode= e.keyCode;
         inputMovieName = $('#input-movie-name').val();
+console.log("Movie name input"+inputMovieName);
 
         if(keyCode===13){
             //User pressed enter - Send request to server to get list of all locations for given movie name
@@ -78,3 +80,23 @@ var keyCode= e.keyCode;
 });
 
 var getListOfMoviesFromServer = new moviesListRequest();
+
+var remoteURL='http://www.jayeshkawli.com/SFMovies/SFMoviesStoreInDataBase.php?movieNameInput=';
+
+var autocompleteRemote = new Backbone.AutocompleteList({
+
+
+
+    url: function() { return remoteURL+inputMovieName+'&'+ $.param({ all_suggestions: inputMovieName }); },
+    filter: null,
+    el: $('#input-movie-name'),
+    template: _.template('<p><%= name.replace(new RegExp("(" + inputMovieName + ")", "i") ,"<b>$1</b>") %></p>'),
+    delay: 500,
+    minLength: 1,
+    value: function(model) { return model.get('name') }
+}).resultsView.collection.parse = function(resp) {
+
+
+
+    return resp.all_suggestions;
+};

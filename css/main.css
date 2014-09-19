@@ -304,14 +304,14 @@ textarea {
 }
 
 #input-movie-name{
-
+width: 200px;
 }
 
 #search-bar-div{
-    margin-left: 50px;
+    margin-left: 80px;
     margin-top: 20px;
     position: absolute;
-    z-index: 100;
+    z-index: 1;
 
 }
 input[type="text"]{
@@ -332,5 +332,29 @@ input[type="text"]{
 }
 .selected{
     background-color: rgba(170,160,220,0.7);
+}
+
+.movie-content-data{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight:bold ;
+    font-size: 17px;
+}
+
+.movie-location,.movie-content{
+   color: rgba(255,0,0,1);
+}
+
+.movie-lead-actor,.movie-fun-facts,.movie-release-year{
+    color: rgba(255,170,0,1);
+}
+
+.movie-production-company,.movie-director,.movie-writer{
+    color: rgba(10,160,155,1);
+}
+
+.movie-other-actor{
+    color:  rgba(127,0,255,1);
+
 }
 

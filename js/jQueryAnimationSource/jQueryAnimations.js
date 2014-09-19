@@ -3,14 +3,15 @@
  */
 $("#input-movie-name").focus(function(){
 
-    $(this).animate({ "width" : "400px"});
-    $("#search-bar-div").css("width","650");
+    $(this).animate({ "width" : "275px"});
+    $("#search-bar-div").css("width","385");
 });
 
 $("#input-movie-name").blur(function(){
 
-    $("#search-bar-div").css("width","510");
-    $(this).animate({ "width" : "250px"});
+
+    $(this).animate({ "width" : "200px"});
+    $("#search-bar-div").css("width","420");
 
 
 });

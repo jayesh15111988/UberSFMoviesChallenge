@@ -1,102 +1,74 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquery.devbridge-autocomplete.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
-
-        <script src="js/jQueryAnimationSource/jquery.lightbox_me.js"></script>
-        <script src="js/SFMoviesAutocomplete/backbone-autocomplete.js"></script>
-
-        <script src="js/APIRequestMovies/SFMoviesProjectConstants.js"></script>
-        <script src="js/APIRequestMovies/SFMoviePromiseProvider.js"></script>
-
-        <script src="js/ConnectionChecker/InternetConnectionChecker.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-
-        <style type="text/css">
-            /* To do put it in the main css file */
-            html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
-        </style>
-        <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCES1gYjy3W5pPIDFviPgjVGLvGm1K6bSI">
-        </script>
-        <script src="js/GoogleMaps/GoogleMapsFetch.js"></script>
-        <script src="js/APIRequestMovies/SFMovieMapPlotterOnView.js"></script>
-        <script src="js/jQueryAnimationSource/jQueryAnimations.js" defer></script>
-
-
-    </head>
-    <body>
-
-
-
-
-
-
-
-
-
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-    <div id="no-result-error">
-
-        Server Could not find data for suggested input string  <br/>
-        Please try with more elaborate possible movie names
-        </div>
-
-        <div id="search-bar-div">
-
-
-
-            <input type="text" name="search" autocomplete="off" placeholder="Please name the movie" class="user-input" id="input-movie-name">
-
-            <script src="js/APIRequestMovies/SFMoviesNameInputView.js"></script>
-            <script src="js/APIRequestMovies/SFMoviesGetAndShowSuggestedMovieNames.js"></script>
-
-            <button class="general-button" id='search-button'>Search </button>
-
-
-            <br style="clear: left;" />
-        </div>
-
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>San Francisco Movie locations Marker - Supported by Google Maps</title>
+    <meta name="description" content="This is simple single page applications which provides visual mappings of locations
+                        for a given movie name. This applications uses backbone for MVC bindings and Google maps API for geolocation retrieval">
+    <!-- Beautiful Icon of San Francisco Golden Gate Bridge -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Main CSS file for design guideline details -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- External CDN for libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquery.devbridge-autocomplete.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+    <script src="js/jQueryAnimationSource/jquery.lightbox_me.js"></script>
+    <script src="js/SFMoviesAutocomplete/backbone-autocomplete.js"></script>
+    <script src="js/APIRequestMovies/SFMoviesProjectConstants.js"></script>
+    <script src="js/APIRequestMovies/SFMoviePromiseProvider.js"></script>
+    <script src="js/ConnectionChecker/InternetConnectionChecker.js"></script>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCES1gYjy3W5pPIDFviPgjVGLvGm1K6bSI"></script>
+    <script src="js/GoogleMaps/GoogleMapsFetch.js"></script>
+    <script src="js/APIRequestMovies/SFMovieMapPlotterOnView.js"></script>
+    <script src="js/jQueryAnimationSource/jQueryAnimations.js" defer></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- This is a red pop up appearing from the top of page
+    1. In case movie name entered by user does not retrieve any suggestions from server
+    2. For given valid movie name, we could not retrieve at least one location from server
+    -->
+<div id="no-result-error">
+    Server Could not find data for suggested input string  <br/>
+    Please try with more elaborate possible movie names
+</div>
+<!-- Search bar section which displays input text box, search button and autocompletion div block -->
+<div id="search-bar-div">
+    <input type="text" name="search" autocomplete="off" placeholder="Please Enter Movie" class="user-input" id="input-movie-name">
+    <script src="js/APIRequestMovies/SFMoviesNameInputView.js"></script>
+    <script src="js/APIRequestMovies/SFMoviesGetAndShowSuggestedMovieNames.js"></script>
+    <button class="general-button" id='search-button'>Search </button>
+    <br style="clear: left;" />
+</div>
+<!-- In case of internet outage, we will show this pop up to user
+    which will automatically disappear once connection comes back to life -->
 <div id="internet-connection-status-dialogue">
-<div class="connection-error-message">
-
-    <div class="main-error-message"></div><br/>
-    <div class="main-error-resolution"></div>
-    <div class="extra-error-message"></div>
-
+    <div class="connection-error-message">
+        <div class="main-error-message"></div>
+        <br/>
+        <div class="main-error-resolution"></div>
+        <br/>
+        <div class="extra-error-message"></div>
+    </div>
 </div>
-</div>
-
-        <div id="map-canvas"></div>
-
-
-
-
-
-
-
-    </body>
+<!-- Main map section -->
+<div id="map-canvas"></div>
+</body>
 </html>

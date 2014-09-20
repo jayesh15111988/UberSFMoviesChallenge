@@ -1,46 +1,30 @@
 /**
  * Created by jayeshkawli on 9/15/14.
  */
+//Simple function to conveniently send and receive GET and POST data. 
+//User is required to pass few required parameters to use this method. It has convenient success and error callbacks
+//To return gathered data
 
+function sendRequestToServerWithRequestAndMethodParameters(baseURL, APIVersion, APItailEnd, requestMethod, POSTData, callBackFunction, errorCallBackFunction) {
 
-function sendRequestToServerWithRequestAndMethodParameters(baseURL,APIVersion,APItailEnd,requestMethod,POSTData,callBackFunction,errorCallBackFunction){
+    var serverRequest = Backbone.Collection.extend({
 
+        //Specify REST URL
+        url: baseURL + '/' + APIVersion + '/' + APItailEnd,
+        //Parse the response
+        parse: function (response) {
+            return response;
+        },
+        initialize: function () {
+            this.bind("reset", function (model, options) {
+            });
+        }
+    });
 
-
-
-        //Create a Car Collection
-        var serverRequest = Backbone.Collection.extend({
-
-            //Specify REST URL
-            url: baseURL+'/'+APIVersion+'/'+APItailEnd,
-
-            //Parse the response
-            parse: function (response) {
-
-
-
-
-
-
-                return response;
-
-            },
-
-            initialize: function () {
-                this.bind("reset", function (model, options) {
-                    console.log("Inside event");
-
-                });
-            }
-
-        });
-
-        var serverRequestInstance = new serverRequest();
-
-    if(requestMethod==RESTRequestMethods.GET){
+    var serverRequestInstance = new serverRequest();
+    if (requestMethod == RESTRequestMethods.GET) {
         serverRequestInstance.fetch({
-            success: function(response,xhr) {
-
+            success: function (response, xhr) {
                 callBackFunction(response);
             },
             error: function (errorResponse) {
@@ -48,21 +32,13 @@ function sendRequestToServerWithRequestAndMethodParameters(baseURL,APIVersion,AP
             }
         });
     }
-    else if(requestMethod==RESTRequestMethods.POST){
+    else if (requestMethod == RESTRequestMethods.POST) {
 
-
-
-
-console.log("Type of post data is", typeof POSTData+" and first value if "+POSTData[0]);
-        $.post(baseURL+'/'+APIVersion+'/'+APItailEnd,
-            {
-                'postDataKey':POSTData
-
+        $.post(baseURL + '/' + APIVersion + '/' + APItailEnd, {
+                postDataKey: POSTData
             },
-            function(data,status){
-                console.log("Data: " + data);
+            function (data, status) {
+                console.log("Data Returned by server after POST operation is : " + data);
             });
-
-
     }
 }

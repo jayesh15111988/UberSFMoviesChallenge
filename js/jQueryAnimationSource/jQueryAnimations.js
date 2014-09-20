@@ -11,7 +11,7 @@ $("#input-movie-name").blur(function(){
 
 
     $(this).animate({ "width" : "200px"});
-    $("#search-bar-div").css("width","380");
+    $("#search-bar-div").css("width","400");
 
 
 });

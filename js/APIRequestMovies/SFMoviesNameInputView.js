@@ -65,30 +65,27 @@ var keyCode= e.keyCode;
 
         //var JSONConvertedServerResponse=serverResponse.toJSON();
             //Send another request to PHP page to store all these movie names persistently along with other metadata
+            //Send request if input string is at least
+            if(inputMovieName.length>=autoCompleteFireThreshold)
+            {
             sendRequestToServerWithRequestAndMethodParameters(HomeServerBaseURL,HomeServerAPIVersion,'SFMoviesStoreInDataBase.php?movieNameInput='+inputMovieName,RESTRequestMethods.GET,'',function(successResponse){
 var JSONConvertedSuccessResponse =  successResponse.toJSON();
                 var movieNamesList=JSONConvertedSuccessResponse[0]['all_suggestions'];
                 if(!movieNamesList.length){
-                    //Show Error message
-                    $(".main-error-message").html("No Suggestion Message");
-                    $(".main-error-resolution").html(" Server Could not find suggested movies titles for input string");
-                    $(".extra-error-message").html("(Please try again with more elaborate hint of possible movie names)");
+                    $("#no-result-error").animate({top:'0'});
 
-
-                    $('#internet-connection-status-dialogue').lightbox_me({
-                        centered: true,
-                        overlaySpeed:"fast",
-                        closeClick:true
-                    });
-
+                }
+                else{
+                    $("#no-result-error").animate({top:'-44px'});
                 }
 
             },function(errorResponse){
-                console.log("Dumb Response"+errorResponse);
+                console.log("Server Error Ocuurred. Description is "+ JSON.stringify(errorResponse));
             });
+        }
 
 
-        //$('.nameText').html(newName);
+
     }
     }
 
@@ -108,7 +105,7 @@ var autocompleteRemote = new Backbone.AutocompleteList({
     el: $('#input-movie-name'),
     template: _.template('<p><%= name.replace(new RegExp("(" + inputMovieName + ")", "i") ,"<b>$1</b>") %></p>'),
     delay: 500,
-    minLength: 1,
+    minLength: autoCompleteFireThreshold,
     value: function(model) { return model.get('name') }
 }).resultsView.collection.parse = function(resp) {
 

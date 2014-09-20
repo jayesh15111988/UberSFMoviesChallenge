@@ -50,22 +50,22 @@ function addMarkerOnMap(){
         //icon: image,
         animation: google.maps.Animation.DROP,
         shape: shape,
-        title: currentMovieCompleteMetadata['MovieTitle'],
+        title: currentMovieCompleteMetadata['MovieLocations'],
         zIndex: currentLocationToMarkOnMap[3]
     });
 
 
 markers.push(marker);
 
-    var contentString ='<div class="movie-content-data"><div class="movie-location">Location : '+currentMovieCompleteMetadata['MovieLocations']+'</div><br/>'+
-        '<div class="movie-content"><div class="movie-title">Movie Name : '+currentMovieCompleteMetadata['MovieTitle']+'</div><br/>'+
-        '<div class="movie-lead-actor">Lead Starring : '+currentMovieCompleteMetadata['MovieFirstActor']+'</div>'+
-        '<div class="movie-fun-facts">Trivia : '+currentMovieCompleteMetadata['MovieFunFacts']+'</div>'+
-        '<div class="movie-release-year">Released In : '+currentMovieCompleteMetadata['MovieReleaseYear']+'</div><br/>'+
-        '<div class="movie-production-company">Production House : '+currentMovieCompleteMetadata['MovieProductionCompany']+'</div>'+
-        '<div class="movie-director">Director : '+currentMovieCompleteMetadata['MovieDirector']+'</div>'+
-        '<div class="movie-writer">Writer : '+currentMovieCompleteMetadata['MovieWriter']+'</div><br/>'+
-        '<div class="movie-other-actor">Other Actor : '+currentMovieCompleteMetadata['MovieSecondActor']+'</div></div>';
+    var contentString ='<div class="movie-content-data"><div class="movie-location"><img src="img/location.png"/>Location : '+currentMovieCompleteMetadata['MovieLocations']+'</div><br/>'+
+        '<div class="movie-content"><div class="movie-title"><img src="img/movie.png"/>Movie Name : '+currentMovieCompleteMetadata['MovieTitle']+'</div><hr class="first"/>'+
+        '<div class="movie-lead-actor"><img src="img/star.png"/>Lead Starring : '+currentMovieCompleteMetadata['MovieFirstActor']+'</div>'+
+        '<div class="movie-fun-facts"><img src="img/trivia.png"/>Trivia : '+currentMovieCompleteMetadata['MovieFunFacts']+'</div>'+
+        '<div class="movie-release-year"><img src="img/release_year.png"/>Released In : '+currentMovieCompleteMetadata['MovieReleaseYear']+'</div><hr class="second"/>'+
+        '<div class="movie-production-company"><img src="img/prod_house.png"/>Production House : '+currentMovieCompleteMetadata['MovieProductionCompany']+'</div>'+
+        '<div class="movie-director"><img src="img/director.png"/>Director : '+currentMovieCompleteMetadata['MovieDirector']+'</div>'+
+        '<div class="movie-writer"><img src="img/writer.png"/>Writer : '+currentMovieCompleteMetadata['MovieWriter']+'</div><hr class="third"/>'+
+        '<div class="movie-other-actor"><img src="img/other_actors.png"/>Other Actor : '+currentMovieCompleteMetadata['MovieSecondActor']+'</div><hr class="fourth"/></div>';
 
 
     var infowindow = new google.maps.InfoWindow({

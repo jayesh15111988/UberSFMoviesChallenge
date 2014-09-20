@@ -8,4 +8,6 @@ var HomeServerAPIVersion='SFMovies';
 var GoolgeMapsBaseURL="https://maps.googleapis.com/maps/api/geocode/json";
 var CurrentCityAndStateCombination="san+fransisco+CA";
 var GoogleMapsAuthorizationKey="AIzaSyCES1gYjy3W5pPIDFviPgjVGLvGm1K6bSI";
-var inputMovieName='';
+
+//Search event will be fired only when user provided input string has length at least this value
+var autoCompleteFireThreshold=2;

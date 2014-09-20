@@ -13,7 +13,7 @@ function sendRequestToGetListAndPlotAllMapPointOnMapWithMovieName(inputMovieName
     var destinationURLToGetAllMovieLocations=HomeServerBaseURL+"/"+HomeServerAPIVersion+"/SFMoviesSendMovieLocations.php";
 
     getPromiseWithURLAndParameters(destinationURLToGetAllMovieLocations,{inputMovieName:inputMovieNameValue}).then(function(returnedLocations) {
-        //console.log('Got data! Promise fulfilled.'+JSON.stringify(returnedLocations)+ " final data returne by server ");
+
         collectionOfAllMoviesMetaData=returnedLocations['all_movie_locations_list'];
 
 
@@ -36,20 +36,18 @@ return Promise.all(promisesCollectionArray);
         }
         else{
             //Show error saying that no movie found in the database
-            console.log("no moview found for given input name");
+            console.log("no Locations info found for given input movie name");
             return 0;
         }
     }, function(error) {
         console.log('Promise rejected.');
         //console.log(error.message);
     }).then(function(returnedLocationCoordinates){
-         console.log("Length pof result "+returnedLocationCoordinates.length);
-         //console.log(JSON.stringify(returnedLocationCoordinates));
-            //TO DO plot all coordinates on map
-            //We already have all lats and longs so this shouldnt be a problem as such
-            //TO DO TO DO
+
+
             if(returnedLocationCoordinates)
             {
+                $("#no-result-error").animate({top:'-44px'});
             for(var locationCoordinatesIndex in returnedLocationCoordinates){
 
 
@@ -62,7 +60,6 @@ return Promise.all(promisesCollectionArray);
                 //Mapped on the given view
                     mapCoordinatesAndInfoHolderArray.push([collectionOfAllMoviesMetaData[locationCoordinatesIndex],locationDetails['lat'],locationDetails['lng'],parseInt(locationCoordinatesIndex+5,10),locationName]);
 
-//console.log(JSON.stringify(mapCoordinatesAndInfoHolderArray));
                 }
                 else{
                     console.log("Error In retrieving location  "+JSON.stringify(collectionOfAllMoviesMetaData[locationCoordinatesIndex]));
@@ -72,22 +69,11 @@ return Promise.all(promisesCollectionArray);
            if(mapCoordinatesAndInfoHolderArray.length>0){
                plotPinsOnMapWithMovieLocationsInformation();
            }
-            else{
-               //Show some Error message that coordinate is not available
-               //Show Error message
-               $(".main-error-message").html("No Location Info Found");
-               $(".main-error-resolution").html(" Server Could not find locations information for given movie title");
-               $(".extra-error-message").html("(Please try again search with different movie name)");
 
-
-               $('#internet-connection-status-dialogue').lightbox_me({
-                   centered: true,
-                   overlaySpeed:"fast",
-                   closeClick:true
-               });
-
-           }
         }
+            else{
+                $("#no-result-error").animate({top:'0'});
+            }
         },function(error){
             console.log("Error occurred "+error);
         });

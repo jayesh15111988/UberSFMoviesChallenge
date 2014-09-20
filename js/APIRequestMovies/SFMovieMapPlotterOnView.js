@@ -18,6 +18,7 @@ var mapCoordinatesAndInfoHolderArray=[];
 function sendRequestToGetListAndPlotAllMapPointOnMapWithMovieName(inputMovieNameValue){
 
 
+
     mapCoordinatesAndInfoHolderArray=[];
     //We may have markers from previous request. Before sending request, we will call this function to
     // get rid of all markers on the current map

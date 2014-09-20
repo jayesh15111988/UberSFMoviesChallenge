@@ -101,6 +101,8 @@
                 this.$selected().removeClass('selected');
                 this.$el.val(options.value.call(model, model));
                 this.term = this.$el.val();
+                //this.term is actually value selected by user from the list of autosuggestions
+                sendRequestToGetListAndPlotAllMapPointOnMapWithMovieName(this.term);
                 this.$el.focus();
                 this.trigger('selected', model);
             }, this);

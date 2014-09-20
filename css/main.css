@@ -30,7 +30,6 @@ input[type="text"] {
 
 .autocomplete-results {
     background-color: rgba(192,192,192,0.5);
-    height: 300px;
     overflow-y: auto;
     display: none;
 }

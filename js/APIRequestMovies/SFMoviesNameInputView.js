@@ -86,6 +86,7 @@ var moviesListRequest = Backbone.View.extend({
 
 var getListOfMoviesFromServer = new moviesListRequest();
 
+
 var autocompleteRemote = new Backbone.AutocompleteList({
 
     url: function () {

@@ -1,6 +1,39 @@
 
 <b>Summary</b>: Goal of this project is that provided the name of movie through standard user input, map all locations on a map where it was filmed
 
+<p>
+<b>Before we delve into manual, please have a look at some of the most amazing screenshots from this applications.</b>
+</p>
+
+<p>
+<b>Home Page</b>
+<p>
+<img src='http://jayeshkawli.com/UberChallengeScreenshots/HomePage.png'>
+</p>
+</p>
+<p>
+<b>Support for auto completion</b>
+<p>
+<img src='http://jayeshkawli.com/UberChallengeScreenshots/AutoSuggestions.png'>
+</p>
+</p>
+<p>
+<b>Easier representation of all possible movie locations on easily navigable map</b>
+<p>
+<img src='http://jayeshkawli.com/UberChallengeScreenshots/EasyRepresentation.png'>
+</p>
+</p>
+<p>
+<b>All the information about selected movie on your fingertips</b>
+<p>
+<img src='http://jayeshkawli.com/UberChallengeScreenshots/ExtraInfo.png'>
+</p>
+</p>
+
+<p>
+....And here we go! All about this application
+</p>
+
 <b>User Interaction</b> : User will be presented a simple UI with the map and input for desired movie name. This applications provides
 Autocompletion support which means given the partial movie name it will retrieve all movies matching the partial value of this input string.
 
@@ -46,13 +79,15 @@ By one of the most type of of vulnerabilities which results in SQL injection att
 
 1. No test case - Unfortunately I could not provide test cases with this project. The reason being the short period of time for project completion and I am still a beginner at writing test cases. But given enough time I can write test cases for appropriate scenarios for this project
 2. Inability to take full advantage of backbone.js - As I mentioned earlier this is my first time working on backbone.js. Though I have worked on Angular.JS MVC framework in the past. This is quite different which makes it difficult to get hold of key concepts in the span of few days.
-3. Inability to work with browser which do not support Promises - I have made use of standard JavaScript Promises to make multiple network requests easier. However, as noted on (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) Internet Explorer and Safari Browsers do not support this feature which makes it impossible for this application to run on these browsers.
-
+<br/><br/>
+3.~~Inability to work with browser which do not support Promises - I have made use of standard JavaScript Promises to make multiple network requests easier. However, as noted on~~ ~~(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) Internet Explorer and Safari Browsers do not support this feature which makes it impossible for this application to run on these browsers.~~
+This issue is now fixed. I have added local Promise.js library to cope up with unsupported browser configuration
+<br/><br/>
 <b>Future Additions:</b><br/><br/>
-1. Replace promises with equivalent method for older and such browsers which do not support it<br/><br/>
+1. ~~Replace promises with equivalent method for older and such browsers which do not support it~~ Fixed<br/><br/>
 2. Ability to search movies not only from names but also from other parameters such as actor, director and locations<br/><br/>
 3. Caching previously visited locations on map. (We could use local storage to store previously received geo-coding data and movie information)<br/><br/>
-4. Provide more controls to user as long as map appearances are concerned<br/><br/>
+4. ~~Provide more controls to user as long as map appearances are concerned~~ Already made some extra changes to improve UX<br/><br/>
 5. Writing unit and integration tests<br/><br/>
 6. Storing and displaying user history<br/><br/>
 7. Incorporating feature for sharing this information on social platform (Such as Google+, Facebook and Twitter)<br/><br/>

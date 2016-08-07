@@ -8,7 +8,7 @@ var HomeServerBaseURL='http://www.jayeshkawli.com';
 var HomeServerAPIVersion='SFMovies';
 var GoolgeMapsBaseURL="https://maps.googleapis.com/maps/api/geocode/json";
 var CurrentCityAndStateCombination="san+fransisco+CA";
-var GoogleMapsAuthorizationKey="AIzaSyAMcrU4CDobs_8Kq8Ohaduexq4T_PzwgyU";
+var GoogleMapsAuthorizationKey="AIzaSyDeRdyRv5GthW1kmrB2HB_pLLq6JafJgxs";
 var remoteMovieNamesRetrievalURL = 'SFMoviesStoreInDataBase.php?movieNameInput=';
 //Search event will be fired only when user provided input string has length of at least this value
 var autoCompleteFireThreshold=2;
